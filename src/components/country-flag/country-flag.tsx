@@ -10,7 +10,7 @@ export class CountryFlag {
   @Element() el: HTMLElement;
 
   /** Fetch data API*/
-  @Prop({ mutable: true }) public getAPI: any = 'https://s3-eu-west-1.amazonaws.com/sfactorycorp/v3.1redesign/Prod/Master/js/territory_selector_config.js';
+  @Prop({ mutable: true }) public getAPI: any = '';
 
   /** API fetch mode */
   @Prop() public mode: any = 'Get';
@@ -725,7 +725,7 @@ export class CountryFlag {
               redirectUrl: "#.tn"
             }
           ]
-        }
+        },
         {
           machineName: "tr",
           label: "Turkey",
