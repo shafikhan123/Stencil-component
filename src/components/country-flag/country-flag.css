@@ -1,0 +1,528 @@
+/**
+* @file
+* territory selector styles, colors etc.
+*/
+
+/**
+ * @prop --list-container-width: width of list-container.
+ * @prop --list-lable-color: Color of country list label (defaults to #666).
+ * @prop --list-link-color: Color of country list link (Defaults to #fff).
+ * @prop --header-color: Color of country list header  (Defaults to #ccc).
+ * @prop --country-header-color: Color of country header label (Defaults to #666).
+ * @prop --country-header-active-color: Color of active lenguage of country (Defaults to #f8971d).
+ */
+
+ :host {
+  background: url(https://s3-eu-west-1.amazonaws.com/sfactorycorp/Dev/master/images/icon-territory-selector-dropdown.png) no-repeat right 55%;
+  color: #0093D0;
+  padding: 0 15px 0 0;
+  display: inline-block;
+  position: relative;
+}
+
+.territory-select-list-item.active-country {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .territory-select-list {
+    column-count: 2;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .territory-select-list {
+    column-count: 3;
+    width: 100%;
+  }
+}
+
+.default-territory {
+  display: block;
+  width: auto;
+}
+
+.territory-select-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px 0 !important;
+  font-size: 75%;
+}
+
+.territory-select-list.col-3 {
+  float: left;
+  width: 33%;
+}
+
+.territory-select-list li {
+  line-height: 1;
+  margin: 0 0 10px 0;
+  padding: 2px 0;
+  white-space: pre-wrap;
+  width: 90%;
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.col-4-ie9 {
+  float: left;
+  margin-right: 10px;
+  width: 125px;
+}
+
+.default-territory:hover {
+  cursor: pointer
+}
+
+.territory-select-list a {
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--list-link-color, #fff);
+}
+
+.block-territory-selector {
+  display: none;
+  margin: 0 0 10px 0;
+}
+
+@media all and (min-width: 960px) {
+  .block-territory-selector {
+    display: block;
+    margin-right: 115px;
+  }
+}
+
+.block-territory-selector h2 {
+  display: none;
+}
+
+
+.territory-list-container-header {
+  border-bottom: 1px solid #ccc;
+  float: left;
+  padding: 0 0 10px 0;
+  width: 100%;
+}
+
+.territory-list-container-header .territory-current-header,
+.territory-list-container-header .default-territory,
+.territory-list-container-header .territory-languages {
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.territory-list-container-header .territory-languages a {
+  margin-right: 10px;
+  color: #0093D0;
+}
+
+.territory-list-container-header .territory-languages .active {
+  color: var(--country-header-active-color, #f8971d);
+}
+
+.territory-list-container-header .default-territory {
+  background: none;
+  color: var(--country-header-color, #666);
+  padding: 0 20px 0 0;
+  border-right: 1px solid rgba(255, 255, 255, .5);
+}
+
+.territory-list-container-header .territory-language {
+  margin: 0 20px 0 0;
+}
+
+.territory-select-list .territory-name {
+  color: var(--list-lable-color, #666);
+}
+
+.js .block-locale {
+  display: none;
+}
+
+.js .territory-main-container .block-locale {
+  display: block;
+}
+
+.territory-main-container .block-locale .active {
+  color: #f8971d;
+}
+
+.territory-main-container .caret-up {
+  background: url(https://s3-eu-west-1.amazonaws.com/sfactorycorp/v3.1redesign/Prod/Master/images/icon-caret-up-white.png) no-repeat;
+  background-position: 0 0;
+  border: none;
+  height: 25px;
+  margin-top: -11px;
+  position: absolute;
+  right: 0;
+  top: 47px;
+  width: 85px;
+  z-index: 200;
+  display: none;
+}
+
+.territory-main-container.active .caret-up,
+.default-territory:hover .caret-up {
+  display: none;
+}
+
+
+.territory-list-container {
+  background: rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 3px 5px 0 #000;
+  -webkit-box-shadow: 0 3px 5px 0 #000;
+  box-shadow: 0 3px 5px 0 #000;
+  height: auto;
+  padding: 20px;
+  position: absolute;
+  top: 20px;
+  max-width: 940px;
+  z-index: 99;
+  width: var(--list-container-width, 800px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 600ms, visibility 300ms;
+  transition: opacity 600ms, visibility 300ms;
+}
+
+@media screen and (max-width: 960px) {
+  .territory-list-container {
+    width: var(--list-container-width, 600px);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .territory-list-container {
+    width: var(--list-container-width, 300px);
+  }
+}
+
+.territory-list-container.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 600ms visibility 600ms;
+}
+
+.territory-current-header {
+  color: var(--header-color, #ccc);
+  display: inline;
+  font-style: italic;
+}
+
+.territory-select-list a:hover {
+  text-decoration: underline;
+}
+
+.territory-select-list-item .territory-flag,
+.default-territory .default-territory-flag {
+  background: url(https://s3-eu-west-1.amazonaws.com/sfactorycorp/v3.1redesign/Prod/Master/images/sprite-icons-flags.png) no-repeat;
+  float: left;
+  height: 12px;
+  width: 17px;
+  margin: 4px 5px 0 0;
+}
+
+.territory-select-list-item .territory-flag {
+  margin: 4px 10px 0 0;
+}
+
+li.com .territory-flag,
+.default-territory-com .default-territory-flag {
+  background-position: -66px -144px;
+}
+
+li.ar .territory-flag,
+.default-territory-ar .default-territory-flag {
+  background-position: 0 0;
+}
+
+li.au .territory-flag,
+.default-territory-au .default-territory-flag {
+  background-position: 0 -12px;
+}
+
+li.at .territory-flag,
+.default-territory-at .default-territory-flag {
+  background-position: 0 -24px;
+}
+
+li.be .territory-flag,
+.default-territory-be .default-territory-flag {
+  background-position: 0 -36px;
+}
+
+li.br .territory-flag,
+.default-territory-br .default-territory-flag {
+  background-position: 0 -48px;
+}
+
+li.ca .territory-flag,
+.default-territory-ca .default-territory-flag {
+  background-position: 0 -60px;
+}
+
+li.cn .territory-flag,
+.default-territory-cn .default-territory-flag {
+  background-position: 0 -72px;
+}
+
+li.co .territory-flag,
+.default-territory-co .default-territory-flag {
+  background-position: 0 -84px;
+}
+
+li.cz .territory-flag,
+.default-territory-cz .default-territory-flag {
+  background-position: 0 -96px;
+}
+
+li.dk .territory-flag,
+.default-territory-dk .default-territory-flag {
+  background-position: 0 -108px;
+}
+
+li.fi .territory-flag,
+.default-territory-fi .default-territory-flag {
+  background-position: 0 -120px;
+}
+
+li.fr .territory-flag,
+.default-territory-fr .default-territory-flag {
+  background-position: -17px 0;
+}
+
+li.de .territory-flag,
+.default-territory-de .default-territory-flag {
+  background-position: -17px -12px;
+}
+
+li.gr .territory-flag,
+.default-territory-gr .default-territory-flag {
+  background-position: -17px -24px;
+}
+
+li.hk .territory-flag,
+.default-territory-hk .default-territory-flag {
+  background-position: -17px -36px;
+}
+
+li.hu .territory-flag,
+.default-territory-hu .default-territory-flag {
+  background-position: -17px -48px;
+}
+
+li.india .territory-flag,
+.default-territory-india .default-territory-flag {
+  background-position: -17px -60px;
+}
+
+li.Indonesia .territory-flag,
+.default-territory-Indonesia .default-territory-flag {
+  background-position: -17px -72px;
+}
+
+li.ie .territory-flag,
+.default-territory-ie .default-territory-flag {
+  background-position: -17px -84px;
+}
+
+li.il .territory-flag,
+.default-territory-il .default-territory-flag {
+  background-position: -17px -96px;
+}
+
+li.it .territory-flag,
+.default-territory-it .default-territory-flag {
+  background-position: -17px -108px;
+}
+
+li.jp .territory-flag,
+.default-territory-jp .default-territory-flag {
+  background-position: -17px -120px;
+}
+
+li.kr .territory-flag,
+.default-territory-kr .default-territory-flag {
+  background-position: -34px 0;
+}
+
+li.my .territory-flag,
+.default-territory-my .default-territory-flag {
+  background-position: -34px -12px;
+}
+
+li.mx .territory-flag,
+.default-territory-mx .default-territory-flag {
+  background-position: -34px -24px;
+}
+
+li.nl .territory-flag,
+.default-territory-nl .default-territory-flag {
+  background-position: -34px -36px;
+}
+
+li.nz .territory-flag,
+.default-territory-nz .default-territory-flag {
+  background-position: -34px -48px;
+}
+
+li.no .territory-flag,
+.default-territory-no .default-territory-flag {
+  background-position: -34px -60px;
+}
+
+li.pk .territory-flag,
+.default-territory-pk .default-territory-flag {
+  background-position: -34px -72px;
+}
+
+li.ph .territory-flag,
+.default-territory-ph .default-territory-flag {
+  background-position: -34px -84px;
+}
+
+li.pl .territory-flag,
+.default-territory-pl .default-territory-flag {
+  background-position: -34px -96px;
+}
+
+li.pt .territory-flag,
+.default-territory-pt .default-territory-flag {
+  background-position: -34px -108px;
+}
+
+li.ru .territory-flag,
+.default-territory-ru .default-territory-flag {
+  background-position: -34px -120px;
+}
+
+li.sk .territory-flag,
+.default-territory-sk .default-territory-flag {
+  background-position: -51px 0;
+}
+
+li.za .territory-flag,
+.default-territory-za .default-territory-flag {
+  background-position: -51px -12px;
+}
+
+li.es .territory-flag,
+.default-territory-es .default-territory-flag {
+  background-position: -51px -24px;
+}
+
+li.se .territory-flag,
+.default-territory-se .default-territory-flag {
+  background-position: -51px -36px;
+}
+
+li.ch .territory-flag,
+.default-territory-ch .default-territory-flag {
+  background-position: -51px -48px;
+}
+
+li.tw .territory-flag,
+.default-territory-tw .default-territory-flag {
+  background-position: -51px -60px;
+}
+
+li.th .territory-flag,
+.default-territory-th .default-territory-flag {
+  background-position: -51px -72px;
+}
+
+li.tn .territory-flag,
+.default-territory-tn .default-territory-flag {
+  background-position: -68px -24px;
+}
+
+li.tr .territory-flag,
+.default-territory-tr .default-territory-flag {
+  background-position: -51px -84px;
+}
+
+li.uk .territory-flag,
+.default-territory-uk .default-territory-flag {
+  background-position: -51px -96px;
+}
+
+li.us .territory-flag,
+.default-territory-us .default-territory-flag {
+  background-position: -51px -108px;
+}
+
+li.sg .territory-flag,
+.default-territory-sg .default-territory-flag {
+  background-position: -51px -120px;
+}
+
+li.ve .territory-flag,
+.default-territory-ve .default-territory-flag {
+  background-position: -68px 0px;
+}
+
+li.bg .territory-flag,
+.default-territory-bg .default-territory-flag {
+  background-position: -68px -13px;
+}
+
+li.cac .territory-flag,
+.default-territory-cac .default-territory-flag {
+  background-position: -68px -36px;
+}
+
+li.si .territory-flag,
+.default-territory-si .default-territory-flag {
+  background-position: -68px -48px;
+}
+
+li.hr .territory-flag,
+.default-territory-hr .default-territory-flag {
+  background-position: -68px -60px;
+}
+
+li.lt .territory-flag,
+.default-territory-lt .default-territory-flag {
+  background-position: -68px -72px;
+}
+
+li.et .territory-flag,
+.default-territory-ee .default-territory-flag {
+  background-position: -68px -84px;
+}
+
+li.lv .territory-flag,
+.default-territory-lv .default-territory-flag {
+  background-position: -68px -96px;
+}
+
+li.by .territory-flag,
+.default-territory-by .default-territory-flag {
+  background-position: -68px -108px;
+}
+
+li.pe .territory-flag,
+.default-territory-pe .default-territory-flag {
+  background-position: 0px -132px;
+}
+
+li.rs .territory-flag,
+.default-territory-rs .default-territory-flag {
+  background-position: -17px -132px;
+}
+
+li.ec .territory-flag,
+.default-territory-ec .default-territory-flag {
+  background-position: -68px -120px;
+}
+
+li.vn .territory-flag,
+.default-territory-vn .default-territory-flag {
+  background-position: -34px -132px;
+}
+
+li.ua .territory-flag,
+.default-territory-ua .default-territory-flag {
+  background-position: -51px -132px;
+}
